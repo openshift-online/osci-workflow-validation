@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: osci-workflow-validation
+  labels:
+    app: osci-workflow-validation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: osci-workflow-validation
+  template:
+    metadata:
+      labels:
+        app: osci-workflow-validation
+    spec:
+      containers:
+      - name: server
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: osci-workflow-validation
+  labels:
+    app: osci-workflow-validation
+spec:
+  selector:
+    app: osci-workflow-validation
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
