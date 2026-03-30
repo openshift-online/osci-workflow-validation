@@ -32,7 +32,7 @@ func TestRootHandler(t *testing.T) {
 		t.Errorf("expected status 200, got %d", w.Code)
 	}
 
-	expected := `{"app":"osci-workflow-validation","version":"0.1.0"}`
+	expected := `{"app":"osci-workflow-validation","version":"0.2.0"}`
 	if w.Body.String() != expected {
 		t.Errorf("expected body %q, got %q", expected, w.Body.String())
 	}
