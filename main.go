@@ -16,7 +16,7 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprint(w, `{"app":"osci-workflow-validation","version":"0.2.1"}`)
+	fmt.Fprint(w, `{"app":"osci-workflow-validation","version":"0.2.2"}`)
 }
 
 func main() {
