@@ -45,3 +45,30 @@ The workflow requires a secret named `ephemeral-bot-svc-account` in the `test-cr
 |-----|-------------|
 | `oc-login-token` | Service account token for the ephemeral cluster |
 | `oc-login-server` | API server URL of the ephemeral cluster |
+
+## Installation
+
+### Prerequisites
+
+- Go 1.21+
+
+### Building
+
+```bash
+go build -o osci-workflow-validation .
+```
+
+## Usage
+
+Run the validation server locally:
+
+```bash
+go run .
+```
+
+Test the endpoints:
+
+```bash
+curl http://localhost:8080/healthz    # Health check
+curl http://localhost:8080/version    # Version info
+```
