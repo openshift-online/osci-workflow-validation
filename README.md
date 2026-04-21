@@ -2,6 +2,14 @@
 
 A minimal Go HTTP server used to validate OpenShift CI workflows — specifically the **ephemeral-namespace** workflow that provisions short-lived namespaces on the ConsoleDot ephemeral cluster via [bonfire](https://github.com/RedHatInsights/bonfire).
 
+## Quick Start
+
+```bash
+make build       # Build the server binary
+make test        # Run tests
+make run         # Build and start the server
+```
+
 ## What This Repo Does
 
 This repository exists solely to exercise the `ephemeral-namespace` workflow defined in the [openshift/release](https://github.com/openshift/release) step registry. The application itself is intentionally trivial: a health-check endpoint and a version endpoint.
